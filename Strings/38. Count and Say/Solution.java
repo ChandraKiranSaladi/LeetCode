@@ -11,16 +11,16 @@ class Solution {
             int j = 0;
             while( j < str.length())
             {
-               count = 1; 
-            while( j+1 < str.length() && str.charAt(j) == str.charAt(j+1) ){
-                count++;
-                j++;
-            }
-          //      if(i ==6)
-          //  System.out.println(" count = " + count + " char = " + str.charAt(j));
-            build.append(count);
-            build.append(str.charAt(j));
-            j++;
+                count = 1; 
+	            while( j+1 < str.length() && str.charAt(j) == str.charAt(j+1) ){
+	                count++;
+	                j++;
+	            }
+	          //      if(i ==6)
+	          //  System.out.println(" count = " + count + " char = " + str.charAt(j));
+	            build.append(count);
+	            build.append(str.charAt(j));
+	            j++;
             }
                 
             str = build.toString();

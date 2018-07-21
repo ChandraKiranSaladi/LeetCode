@@ -8,7 +8,7 @@
  * }
  */
 class Solution {
-    double sum = 0, n = 0;
+    int n = 0;
     public List<Double> averageOfLevels(TreeNode root) {
         if(root == null)
             return new ArrayList<Double>();
@@ -16,29 +16,25 @@ class Solution {
         int levels = height(root);
         for(int i = 1; i <= levels ; i++)
         {
-            sum = 0; n = 0;
-            getLevel(root,i);
+             n = 0;
+        double sum = getLevel(root,i);
             list.add(sum/n); // not sure for the correct value
             
         }
         return list;
     }
     
-    public void getLevel(TreeNode root , int level)
+    public double getLevel(TreeNode root , int level)
     {
         if(root == null)
-            return;
+            return 0;
         if(level == 1)
         {
-            sum += root.val;
             n++;
-            return;
+            return root.val;
         }
-        else
-        {
-            getLevel(root.left, level-1);
-            getLevel(root.right, level-1);
-        }
+          return getLevel(root.left, level-1) + getLevel(root.right, level-1);
+        
     }
     
     public int height(TreeNode root)
